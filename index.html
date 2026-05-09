@@ -29,10 +29,7 @@
   <!-- Req 9: preload do primeiro slide (LCP) -->
   <link rel="preload" as="image" href="imagens/slide-01.webp" />
 
-  <!-- Material Symbols — único recurso externo restante -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+  <!-- Sem dependências externas — ícones em SVG inline -->
 
   <!-- CSS — única fonte de verdade (Req 2) -->
   <link rel="stylesheet" href="style.css" />
@@ -45,7 +42,7 @@
   <!-- Topbar -->
   <aside class="topbar" aria-label="Promoção">
     <p>
-      <span class="material-symbols-outlined" aria-hidden="true">local_shipping</span>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
       Frete grátis em compras acima de R$ 500,00 · Entrega programada disponível
     </p>
   </aside>
@@ -81,10 +78,10 @@
       <div class="header-actions">
         <a class="btn-header-cta btn-press" href="#departamentos">Compre Agora</a>
         <button class="btn-icon btn-press" aria-label="Abrir carrinho de compras">
-          <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         </button>
         <button class="btn-icon btn-mobile-menu btn-press" aria-label="Abrir menu de navegação">
-          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         </button>
       </div>
 
@@ -150,7 +147,7 @@
 
         <article class="service-card reveal reveal-delay-1 card-hover">
           <div class="service-icon-wrap service-icon-wrap--green">
-            <span class="material-symbols-outlined">local_shipping</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
           </div>
           <h3>Entrega Rápida</h3>
           <p>Receba suas compras no conforto da sua casa em tempo recorde.</p>
@@ -158,7 +155,7 @@
 
         <article class="service-card reveal reveal-delay-2 card-hover">
           <div class="service-icon-wrap service-icon-wrap--green">
-            <span class="material-symbols-outlined">eco</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32C10.6 20.55 13.8 20.1 15.95 17.95 19.43 14.47 20 4 20 4S9.53 4.57 6.05 8.05z"/></svg>
           </div>
           <h3>Produtos Frescos</h3>
           <p>Seleção rigorosa para garantir a melhor qualidade à sua mesa.</p>
@@ -166,7 +163,7 @@
 
         <article class="service-card reveal reveal-delay-3 card-hover">
           <div class="service-icon-wrap service-icon-wrap--orange">
-            <span class="material-symbols-outlined">payments</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg>
           </div>
           <h3>Melhor Preço</h3>
           <p>Economia garantida com as melhores ofertas e promoções.</p>
@@ -223,7 +220,7 @@
                   <p class="rate-value">R$ 15,00</p>
                 </div>
                 <p class="rate-note">
-                  <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                   Taxa fixa para região central
                 </p>
               </div>
@@ -233,7 +230,7 @@
                   <p class="rate-value">Grátis</p>
                 </div>
                 <p class="rate-note">
-                  <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                   Válido para todas as regiões
                 </p>
               </div>
@@ -340,7 +337,7 @@
           <details class="faq-item" open>
             <summary class="faq-question">
               Como funciona o agendamento da entrega?
-              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+              <svg class="icon faq-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
             </summary>
             <div class="faq-answer">
               Ao finalizar sua compra, você poderá escolher a data e o período (manhã, tarde ou noite) para receber seus produtos, dependendo da disponibilidade para o seu CEP.
@@ -350,7 +347,7 @@
           <details class="faq-item" open>
             <summary class="faq-question">
               Quais são as formas de pagamento aceitas?
-              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+              <svg class="icon faq-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
             </summary>
             <div class="faq-answer">
               Aceitamos cartões de crédito (parcelamento disponível dependendo do valor), débito, PIX e vale-alimentação das principais bandeiras.
@@ -360,7 +357,7 @@
           <details class="faq-item" open>
             <summary class="faq-question">
               Posso realizar trocas ou devoluções?
-              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+              <svg class="icon faq-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
             </summary>
             <div class="faq-answer">
               Sim, garantimos a qualidade dos nossos produtos. Caso receba algo fora do padrão, entre em contato em até 24h para produtos perecíveis para realizarmos a troca ou reembolso.
@@ -370,7 +367,7 @@
           <details class="faq-item" open>
             <summary class="faq-question">
               Vocês possuem aplicativo?
-              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+              <svg class="icon faq-expand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
             </summary>
             <div class="faq-answer">
               Estamos desenvolvendo nosso aplicativo! Por enquanto, nosso site é totalmente otimizado para celulares, garantindo uma experiência rápida e segura.
@@ -424,9 +421,9 @@
       <div class="footer-payments">
         <h3>Formas de Pagamento</h3>
         <div class="payment-icons">
-          <span class="material-symbols-outlined" aria-label="Cartão de crédito">credit_card</span>
-          <span class="material-symbols-outlined" aria-label="Carteira digital">account_balance_wallet</span>
-          <span class="material-symbols-outlined" aria-label="PIX / QR Code">qr_code_scanner</span>
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Cartão de crédito"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Carteira digital"><path d="M21 18v1c0 1.1-.9 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14c1.1 0 2 .9 2 2v1h-9a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="PIX / QR Code"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5zm-6 8h1.5v1.5H13V13zm1.5 1.5H16V16h-1.5v-1.5zM16 13h1.5v1.5H16V13zm-3 3h1.5v1.5H13V16zm1.5 1.5H16V19h-1.5v-1.5zM16 16h1.5v1.5H16V16zm1.5-1.5H19V16h-1.5v-1.5zm0 3H19V19h-1.5v-1.5zM22 7h-2V4h-3V2h5v5zm0 15v-5h-2v3h-3v2h5zM2 22h5v-2H4v-3H2v5zM2 2v5h2V4h3V2H2z"/></svg>
         </div>
       </div>
 

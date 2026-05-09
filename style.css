@@ -328,12 +328,14 @@ summary:focus-visible {
   }
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 1,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+/* Ícones SVG inline — substituem Material Symbols Outlined */
+.icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 
 /* ================================================
@@ -385,7 +387,7 @@ summary:focus-visible {
   font-size: var(--text-sm);
 }
 
-.topbar .material-symbols-outlined {
+.topbar .icon {
   font-size: 1rem;
 }
 
@@ -797,7 +799,7 @@ summary:focus-visible {
   color: var(--color-secondary-container);
 }
 
-.service-icon-wrap .material-symbols-outlined {
+.service-icon-wrap .icon {
   font-size: 1.875rem;
 }
 
@@ -1011,7 +1013,7 @@ summary:focus-visible {
   color: var(--color-primary);
 }
 
-.rate-note .material-symbols-outlined {
+.rate-note .icon {
   font-size: 1rem;
 }
 
@@ -1291,9 +1293,9 @@ summary:focus-visible {
   align-items: center;
 }
 
-.payment-icons .material-symbols-outlined {
-  font-size: 1.875rem;
-  color: var(--color-footer-text);
+.payment-icons .icon {
+  width: 1.875rem;
+  height: 1.875rem;
 }
 
 .footer-copy {
