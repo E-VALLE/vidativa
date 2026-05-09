@@ -146,13 +146,13 @@ Implementado inteiramente em CSS, sem JavaScript e sem classes utilitárias:
 
 ### 9. Otimização de Performance e Assets
 
-- **Imagens do carrossel:** reduzidas de 10 para **5 slides**, convertidas para **WebP** e hospedadas localmente na pasta `imagens/` — elimina todas as requisições externas ao CDN do Unsplash e reduz o payload de ~11,6 MB para ~800 KB–1 MB; `<link rel="preload">` para `slide-01.webp` garante que o LCP (primeiro frame visível) carregue com prioridade máxima; caminhos relativos (`imagens/slide-01.webp`) garantem funcionamento em localhost e GitHub Pages
+- **Imagens do carrossel:** reduzidas de 10 para **3 slides**, convertidas para **WebP** e hospedadas localmente na pasta `imagens/` (~87 KB total) — elimina todas as requisições externas ao CDN do Unsplash e reduz o payload de ~11,6 MB em 99%; `<link rel="preload">` para `slide-01.webp` garante que o LCP (primeiro frame visível) carregue com prioridade máxima; caminhos relativos (`imagens/slide-01.webp`) garantem funcionamento em localhost e GitHub Pages
 - **Logomarca:** dois arquivos SVG vetoriais locais (`logomarca-light.svg` / `logomarca-dark.svg`) substituem imagens externas; SVG não perde qualidade em nenhuma resolução
 - **Meta description** adicionada para SEO e pré-visualização em mecanismos de busca
 - **Logo do cabeçalho** (elemento LCP): `fetchpriority="high"` e `decoding="async"` sinalizam prioridade ao browser
 - **Logo do rodapé:** `loading="lazy"` adia o carregamento até a aproximação do elemento
 - **Fontes hospedadas localmente:** Noto Serif (v33) e Plus Jakarta Sans (v12) servidas da pasta `fontes/` via `@font-face` com `font-display: swap` — elimina as requisições render-blocking ao Google Fonts e reduz o FCP em ~7 s; `<link rel="preload">` para os dois arquivos críticos (Noto Serif 700 e Plus Jakarta Sans 400) garante que as fontes acima do fold estejam prontas antes do primeiro paint
-- **Material Symbols:** único recurso externo restante (fonte de ícones variável, complexa de auto-hospedar); `<link rel="preconnect">` minimiza a latência de conexão
+- **Ícones SVG inline:** os 11 ícones do Material Symbols Outlined foram substituídos por SVG inline diretamente no HTML — elimina a última dependência de CDN externo em runtime. A substituição foi motivada por desempenho: a fonte de ícones do Google era render-blocking (~7 s no 4G simulado do Lighthouse), impedindo o primeiro paint; com SVG inline, zero requisições extras são feitas e as cores herdam automaticamente via `fill: currentColor`, mantendo visual idêntico ao original
 - **Favicon SVG:** `<link rel="icon" href="logomarca-light.svg" type="image/svg+xml">` — sem arquivo extra, reaproveitando o SVG da logomarca; escalável em qualquer resolução
 - **`<meta name="theme-color">`** com `media` para light/dark — colore a barra de endereço no Android Chrome com a cor correta do tema ativo
 - **Open Graph** — `og:title`, `og:description`, `og:image`, `og:locale` e `og:site_name` para preview rico em redes sociais, WhatsApp e apps de mensagem
@@ -178,7 +178,7 @@ Implementado inteiramente em CSS, sem JavaScript e sem classes utilitárias:
 
 ```
 Projeto com HTML e CSS/
-├── index.html               # Estrutura e conteúdo da página
+├── index.html               # Estrutura, conteúdo e ícones SVG inline (zero CDN em runtime)
 ├── style.css                # Design system, layout, animações e acessibilidade
 ├── logomarca-light.svg      # Logo modo claro (verde escuro #2E7D32)
 ├── logomarca-dark.svg       # Logo modo escuro (verde claro #81C784)
@@ -190,9 +190,11 @@ Projeto com HTML e CSS/
 │   ├── plus-jakarta-sans-v12-latin-500.woff2
 │   ├── plus-jakarta-sans-v12-latin-600.woff2
 │   └── plus-jakarta-sans-v12-latin-700.woff2
-├── imagens/                 # 3 imagens do carrossel em WebP, hospedadas localmente (~87 KB total)
+├── imagens/                 # 3 imagens do carrossel em WebP (~87 KB total)
 │   ├── slide-01.webp        # (preloaded — elemento LCP)
 │   ├── slide-02.webp
 │   └── slide-03.webp
 └── README.md                # Este arquivo
 ```
+
+> **Zero dependências externas em runtime.** Todos os recursos (fontes, ícones, imagens, logomarca) são servidos localmente. O projeto funciona completamente offline e sem nenhuma requisição a CDN externo após a carga inicial.
