@@ -1,0 +1,45 @@
+# Documento de Requisitos do Projeto (PRD): Landing Page VidAtiva Supermercados
+
+## 1. Visão Geral do Projeto
+A VidAtiva é uma rede de supermercados premium focada na intersecção entre frescor, saúde e conveniência moderna. O objetivo deste projeto é desenvolver uma landing page de alta fidelidade e responsiva que comunique a proposta de valor única da marca: "Frescor e praticidade na sua mesa".
+
+## 2. Identidade da Marca e Linguagem Visual
+O sistema de design, **Vitality Organic**, estabelece uma estética natural e sofisticada.
+- **Conceito:** Saúde, agilidade e vida cotidiana.
+- **Cor Primária:** `#0d631b` (Verde Musgo escuro) / `#2e7d32` (Verde Musgo — superfície de destaque) — Representam frescor e qualidade orgânica.
+- **Cor Secundária:** `#fe851f` (Âmbar Quente) — Usada para CTAs e destaques para evocar energia e apetite.
+- **Cor de Fundo:** `#f7fbf0` (Creme Off-white) — Proporciona um fundo suave e premium com leve toque verde.
+- **Tipografia:**
+    - **Títulos:** *Noto Serif* (Serif) — Transmite elegância, autoridade e tradição editorial. Hospedada localmente via `@font-face`.
+    - **Corpo/UI:** *Plus Jakarta Sans* (Sans-serif) — Garante legibilidade moderna e amigável em todos os dispositivos. Hospedada localmente via `@font-face`.
+    - **Ícones:** *Material Symbols Outlined* (variável) — Servida via Google Fonts CDN.
+
+## 3. Proposta de Valor Central (Mensagem-Chave)
+"No VidAtiva, você compra quando quiser e recebe quando precisar — sem sair de casa e sem pagar a mais por isso."
+
+## 4. Principais Funcionalidades e Seções da Interface
+1.  **Cabeçalho e Barra Superior:** Visibilidade persistente dos limites de frete grátis (R$ 500+) e opções de entrega.
+2.  **Seção Hero:** Manchete de alto impacto com CTAs claros para pedidos imediatos ou agendamento. Carrossel CSS com 5 imagens de fundo (WebP, hospedadas localmente).
+3.  **Navegação por Departamentos:** Grade intuitiva cobrindo 10 categorias distintas nos setores Alimentar e Não Alimentar.
+4.  **Fluxo de Entrega ("Como Funciona"):** Uma linha do tempo visual de 4 etapas explicando o processo desde a seleção até o recebimento.
+5.  **Transparência em Frete e Agendamento:** Blocos dedicados para custos de frete e janelas de entrega agendada (Manhã/Tarde/Noite).
+6.  **Prova Social:** Depoimentos de clientes com avaliações por estrelas e feedback localizado.
+7.  **Presença de Loja Física:** Endereço e horário de funcionamento para gerar confiança e oferecer opções omnichannel.
+8.  **FAQ Interativo:** Acordeão HTML nativo (`<details>/<summary>`) para autoatendimento rápido — sem JavaScript.
+
+## 5. Requisitos Técnicos
+- **Padrão:** HTML5 semântico e CSS moderno (Flexbox/Grid).
+- **Estratégia:** Design responsivo mobile-first com breakpoints em 640 px, 768 px e 1024 px.
+- **Restrições:** Zero JavaScript, zero frameworks. Uso de SVG para logomarca (light/dark). Imagens em formato WebP hospedadas localmente.
+- **Fontes:** Auto-hospedadas via `@font-face` com `font-display: swap`. Fontes críticas pré-carregadas com `<link rel="preload">`.
+- **Padrões de UX:**
+    - Tipografia fluida com `clamp()` em todos os níveis de heading.
+    - Navegação fixa (`position: sticky`) com `backdrop-filter` e sombra tintada.
+    - Interações de hover (elevação de cards, feedback de pressão em botões).
+    - Scroll Snap suave entre seções (`scroll-snap-type: y proximity`).
+    - Animações de entrada com `@keyframes fadeInUp` e CSS Scroll-Driven Animations.
+    - Suporte nativo a Dark Mode via `@media (prefers-color-scheme: dark)` e `<picture>` para logomarca.
+    - Respeito à preferência de movimento reduzido via `@media (prefers-reduced-motion)`.
+
+## 6. Público-Alvo
+Famílias ocupadas e indivíduos preocupados com a saúde que valorizam produtos frescos de qualidade, mas precisam da conveniência de um serviço de entrega confiável e programável.

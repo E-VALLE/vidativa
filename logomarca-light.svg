@@ -1,0 +1,25 @@
+<svg viewBox="0 0 340 80" xmlns="http://www.w3.org/2000/svg">
+  <title>VidAtiva Supermercados</title>
+
+  <!-- Carrinho escalado: translate(4,4) scale(2.1) →
+       cobre y≈12 a y≈68, mesma altura que "VidAtiva" + "SUPERMERCADOS" -->
+  <g transform="translate(4, 4) scale(2.1)">
+    <path d="M7 4h3.2l3.6 18h18.2l3.4-12H13"
+          fill="none" stroke="#2E7D32" stroke-width="1.2"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="15" cy="28" r="2.5" fill="#2E7D32"/>
+    <circle cx="28" cy="28" r="2.5" fill="#2E7D32"/>
+    <path d="M15 18C15 18 18 10 24 10C24 10 26 14 22 18C18 22 15 18 15 18Z"
+          fill="#81C784"/>
+    <path d="M15 18L24 10"
+          stroke="#2E7D32" stroke-width="0.7" stroke-linecap="round"/>
+  </g>
+
+  <text x="84" y="45"
+        font-family="Noto Serif, Georgia, serif"
+        font-weight="800" font-size="34" fill="#2E7D32" letter-spacing="-1">VidAtiva</text>
+
+  <text x="85" y="65"
+        font-family="DM Sans, Arial, sans-serif"
+        font-weight="700" font-size="12" fill="#2E7D32" letter-spacing="4">SUPERMERCADOS</text>
+</svg>

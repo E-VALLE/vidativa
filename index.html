@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supermercados VidAtiva - Landing Page</title>
+  <meta name="description" content="Supermercados VidAtiva — Entrega expressa de alimentos frescos em Ponta Grossa-PR. Agende sua entrega e receba em até 45 minutos, frete grátis acima de R$ 500." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logomarca-light.svg" type="image/svg+xml" />
+
+  <!-- Theme color — colore a barra de endereço no Android Chrome -->
+  <meta name="theme-color" content="#0d631b" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#181d17" media="(prefers-color-scheme: dark)" />
+
+  <!-- Open Graph — preview rico em redes sociais e apps de mensagem -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="pt_BR" />
+  <meta property="og:site_name"   content="Supermercados VidAtiva" />
+  <meta property="og:title"       content="Supermercados VidAtiva — Entrega Expressa de Alimentos Frescos" />
+  <meta property="og:description" content="Entrega expressa de alimentos frescos em Ponta Grossa-PR. Agende sua entrega e receba em até 45 minutos, frete grátis acima de R$ 500." />
+  <meta property="og:url"         content="https://SEU-USUARIO.github.io/vidativa/" />
+  <meta property="og:image"       content="https://SEU-USUARIO.github.io/vidativa/logomarca-light.svg" />
+
+  <!-- Req 9: preload das fontes críticas (acima do fold) -->
+  <link rel="preload" href="fontes/noto-serif-v33-latin-700.woff2"        as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fontes/plus-jakarta-sans-v12-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Req 9: preload do primeiro slide (LCP) -->
+  <link rel="preload" as="image" href="imagens/slide-01.webp" />
+
+  <!-- Material Symbols — único recurso externo restante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+
+  <!-- CSS — única fonte de verdade (Req 2) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Req 10: skip link -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+  <!-- Topbar -->
+  <aside class="topbar" aria-label="Promoção">
+    <p>
+      <span class="material-symbols-outlined" aria-hidden="true">local_shipping</span>
+      Frete grátis em compras acima de R$ 500,00 · Entrega programada disponível
+    </p>
+  </aside>
+
+  <!-- Header — Req 8: sticky -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <div class="header-brand">
+        <!-- Req 7 + Req 9: <picture> troca SVG pelo tema do sistema -->
+        <picture>
+          <source media="(prefers-color-scheme: dark)"  srcset="logomarca-dark.svg" />
+          <source media="(prefers-color-scheme: light)" srcset="logomarca-light.svg" />
+          <img
+            src="logomarca-light.svg"
+            alt="Logo VidAtiva Supermercados"
+            fetchpriority="high"
+            decoding="async"
+            width="238"
+            height="56"
+          />
+        </picture>
+      </div>
+
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a class="nav-link" href="#departamentos">Departamentos</a>
+        <a class="nav-link" href="#servicos">Serviços</a>
+        <a class="nav-link nav-link--active" href="#delivery" aria-current="page">Delivery</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="#lojas">Lojas</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn-header-cta btn-press" href="#departamentos">Compre Agora</a>
+        <button class="btn-icon btn-press" aria-label="Abrir carrinho de compras">
+          <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
+        </button>
+        <button class="btn-icon btn-mobile-menu btn-press" aria-label="Abrir menu de navegação">
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero">
+
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-overlay"></div>
+        <div class="carousel-slide slide-1"></div>
+        <div class="carousel-slide slide-2"></div>
+        <div class="carousel-slide slide-3"></div>
+        <div class="carousel-slide slide-4"></div>
+        <div class="carousel-slide slide-5"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-inner">
+          <div class="hero-badge animate-hero-badge">
+            <span>⚡ Entrega em até 45 min</span>
+          </div>
+          <h1 class="animate-hero-title">
+            Tudo que sua família precisa, entregue com frescor, qualidade e comodidade
+          </h1>
+          <p class="hero-subtitle animate-hero-subtitle">
+            Frete grátis acima de R$ 500 · Entrega expressa ou agendada · Você escolhe
+          </p>
+          <div class="hero-actions animate-hero-buttons">
+            <a class="btn-secondary btn-press" href="#delivery">Agendar minha entrega</a>
+            <a class="btn-outline btn-press" href="#departamentos">Ver ofertas da semana</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Departamentos -->
+    <section id="departamentos" class="departments">
+      <div class="dept-card-wrap">
+        <h2>Explore Nossos Departamentos</h2>
+        <nav aria-label="Departamentos">
+          <ul class="dept-list">
+            <li><a href="#"><span class="dept-icon">🌿</span><span class="dept-label">Hortifrúti</span></a></li>
+            <li><a href="#"><span class="dept-icon">🥩</span><span class="dept-label">Carnes</span></a></li>
+            <li><a href="#"><span class="dept-icon">🧀</span><span class="dept-label">Frios</span></a></li>
+            <li><a href="#"><span class="dept-icon">🌾</span><span class="dept-label">Mercearia</span></a></li>
+            <li><a href="#"><span class="dept-icon">🥖</span><span class="dept-label">Padaria</span></a></li>
+            <li><a href="#"><span class="dept-icon">🥤</span><span class="dept-label">Bebidas</span></a></li>
+            <li><a href="#"><span class="dept-icon">🧼</span><span class="dept-label">Higiene</span></a></li>
+            <li><a href="#"><span class="dept-icon">🍳</span><span class="dept-label">Utensílios</span></a></li>
+            <li><a href="#"><span class="dept-icon">📝</span><span class="dept-label">Papelaria</span></a></li>
+            <li><a href="#"><span class="dept-icon">🐾</span><span class="dept-label">Pet Shop</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Serviços — grid demonstra Req 3 -->
+    <section id="servicos" class="services">
+      <div class="container layout-grid layout-grid-3">
+
+        <article class="service-card reveal reveal-delay-1 card-hover">
+          <div class="service-icon-wrap service-icon-wrap--green">
+            <span class="material-symbols-outlined">local_shipping</span>
+          </div>
+          <h3>Entrega Rápida</h3>
+          <p>Receba suas compras no conforto da sua casa em tempo recorde.</p>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2 card-hover">
+          <div class="service-icon-wrap service-icon-wrap--green">
+            <span class="material-symbols-outlined">eco</span>
+          </div>
+          <h3>Produtos Frescos</h3>
+          <p>Seleção rigorosa para garantir a melhor qualidade à sua mesa.</p>
+        </article>
+
+        <article class="service-card reveal reveal-delay-3 card-hover">
+          <div class="service-icon-wrap service-icon-wrap--orange">
+            <span class="material-symbols-outlined">payments</span>
+          </div>
+          <h3>Melhor Preço</h3>
+          <p>Economia garantida com as melhores ofertas e promoções.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Delivery -->
+    <section id="delivery" class="delivery">
+      <div class="container">
+
+        <h2 class="section-title reveal">Como funciona nosso Delivery</h2>
+
+        <ol class="timeline">
+          <li class="timeline-step">
+            <div class="timeline-num timeline-num--primary" aria-hidden="true">1</div>
+            <div>
+              <span class="timeline-label">Escolha</span>
+              <span class="timeline-sub">Seus produtos</span>
+            </div>
+          </li>
+          <li class="timeline-step">
+            <div class="timeline-num timeline-num--primary" aria-hidden="true">2</div>
+            <div>
+              <span class="timeline-label">Agende</span>
+              <span class="timeline-sub">O horário ideal</span>
+            </div>
+          </li>
+          <li class="timeline-step">
+            <div class="timeline-num timeline-num--primary" aria-hidden="true">3</div>
+            <div>
+              <span class="timeline-label">Pague</span>
+              <span class="timeline-sub">Com segurança</span>
+            </div>
+          </li>
+          <li class="timeline-step">
+            <div class="timeline-num timeline-num--accent" aria-hidden="true">4</div>
+            <div>
+              <span class="timeline-label">Receba</span>
+              <span class="timeline-sub">No conforto</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="bento">
+
+          <div class="shipping-card">
+            <h3>Taxas de Entrega</h3>
+            <div class="rates-grid">
+              <div class="rate-item">
+                <div>
+                  <span class="rate-category">Compras até R$ 499,99</span>
+                  <p class="rate-value">R$ 15,00</p>
+                </div>
+                <p class="rate-note">
+                  <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                  Taxa fixa para região central
+                </p>
+              </div>
+              <div class="rate-item rate-item--free">
+                <div>
+                  <span class="rate-category">Compras acima de R$ 500,00</span>
+                  <p class="rate-value">Grátis</p>
+                </div>
+                <p class="rate-note">
+                  <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                  Válido para todas as regiões
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-card">
+            <h3>Horários Disponíveis</h3>
+            <div class="slots-grid">
+              <button class="slot-btn">
+                <span class="slot-day">Amanhã</span>
+                <span class="slot-time">08h - 12h</span>
+              </button>
+              <button class="slot-btn">
+                <span class="slot-day">Amanhã</span>
+                <span class="slot-time">14h - 18h</span>
+              </button>
+              <button class="slot-btn" disabled>
+                <span class="slot-day">Hoje</span>
+                <span class="slot-time">Esgotado</span>
+              </button>
+              <button class="slot-btn">
+                <span class="slot-day">Depois de amanhã</span>
+                <span class="slot-time">08h - 12h</span>
+              </button>
+            </div>
+            <button class="btn-all-times btn-press">Ver todos horários</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos — grid demonstra Req 3 -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title reveal">O que nossos clientes dizem</h2>
+        <ul class="layout-grid layout-grid-3">
+
+          <li>
+            <article class="testimonial-card reveal reveal-delay-1 card-hover">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar avatar--primary" aria-hidden="true">MJ</div>
+                <div class="testimonial-meta">
+                  <cite class="testimonial-name">Maria Júlia</cite>
+                  <p class="testimonial-stars" aria-label="5 estrelas">★★★★★</p>
+                </div>
+              </div>
+              <blockquote>"As frutas sempre chegam muito frescas, parece que acabei de escolher na feira. A entrega no horário agendado facilita muito minha rotina."</blockquote>
+            </article>
+          </li>
+
+          <li>
+            <article class="testimonial-card reveal reveal-delay-2 card-hover">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar avatar--tertiary" aria-hidden="true">RC</div>
+                <div class="testimonial-meta">
+                  <cite class="testimonial-name">Ricardo Costa</cite>
+                  <p class="testimonial-stars" aria-label="5 estrelas">★★★★★</p>
+                </div>
+              </div>
+              <blockquote>"O site é muito fácil de usar e as carnes são de excelente qualidade. Primeira vez que compro online e virei cliente fiel."</blockquote>
+            </article>
+          </li>
+
+          <li>
+            <article class="testimonial-card reveal reveal-delay-3 card-hover">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar avatar--accent" aria-hidden="true">AS</div>
+                <div class="testimonial-meta">
+                  <cite class="testimonial-name">Ana Souza</cite>
+                  <p class="testimonial-stars" aria-label="5 estrelas">★★★★★</p>
+                </div>
+              </div>
+              <blockquote>"Amo a praticidade! O entregador sempre cuidadoso com as embalagens, nunca tive problemas com itens trocados ou danificados."</blockquote>
+            </article>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!--
+      ================================================================
+      Req 6 — Curadoria de Código com IA: Componente FAQ
+      ================================================================
+      GERAÇÃO: "Crie um accordion de FAQ acessível usando apenas HTML
+      e CSS, sem JavaScript."
+
+      AJUSTES APLICADOS:
+        1. Espaçamento interno ajustado (padding-top: 0 na resposta).
+        2. Ícone expand_more animado com CSS rotate() no estado [open].
+        3. ARIA nativo do <details> anuncia estado ao leitor de tela.
+        4. Atributo "open" mantido na primeira entrada para visibilidade
+           imediata sem interação.
+        5. Animação de abertura delegada ao CSS (fadeInUp).
+      ================================================================
+    -->
+    <section id="faq" class="faq">
+      <div class="faq-container">
+        <h2 class="section-title reveal">Perguntas Frequentes</h2>
+        <div class="faq-list">
+
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              Como funciona o agendamento da entrega?
+              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="faq-answer">
+              Ao finalizar sua compra, você poderá escolher a data e o período (manhã, tarde ou noite) para receber seus produtos, dependendo da disponibilidade para o seu CEP.
+            </div>
+          </details>
+
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              Quais são as formas de pagamento aceitas?
+              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="faq-answer">
+              Aceitamos cartões de crédito (parcelamento disponível dependendo do valor), débito, PIX e vale-alimentação das principais bandeiras.
+            </div>
+          </details>
+
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              Posso realizar trocas ou devoluções?
+              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="faq-answer">
+              Sim, garantimos a qualidade dos nossos produtos. Caso receba algo fora do padrão, entre em contato em até 24h para produtos perecíveis para realizarmos a troca ou reembolso.
+            </div>
+          </details>
+
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              Vocês possuem aplicativo?
+              <span class="material-symbols-outlined faq-expand-icon" aria-hidden="true">expand_more</span>
+            </summary>
+            <div class="faq-answer">
+              Estamos desenvolvendo nosso aplicativo! Por enquanto, nosso site é totalmente otimizado para celulares, garantindo uma experiência rápida e segura.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="lojas" class="site-footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <p class="footer-logo-wrap">
+          <picture>
+            <source media="(prefers-color-scheme: dark)"  srcset="logomarca-dark.svg" />
+            <source media="(prefers-color-scheme: light)" srcset="logomarca-light.svg" />
+            <img
+              src="logomarca-light.svg"
+              alt="Logo VidAtiva Supermercados"
+              loading="lazy"
+              decoding="async"
+              width="170"
+              height="40"
+            />
+          </picture>
+        </p>
+        <address>
+          <p>Av. das Flores, 1.240 - Centro</p>
+          <p>Ponta Grossa-PR</p>
+        </address>
+        <p><strong>Horário de Funcionamento:</strong></p>
+        <p>Segunda a Sábado: 08h às 22h</p>
+        <p>Domingos e Feriados: 08h às 14h</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links Rápidos">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#">Sustentabilidade</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Lojas Físicas</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-payments">
+        <h3>Formas de Pagamento</h3>
+        <div class="payment-icons">
+          <span class="material-symbols-outlined" aria-label="Cartão de crédito">credit_card</span>
+          <span class="material-symbols-outlined" aria-label="Carteira digital">account_balance_wallet</span>
+          <span class="material-symbols-outlined" aria-label="PIX / QR Code">qr_code_scanner</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 Supermercados VidAtiva. Produtos Frescos e Saudáveis todos os dias.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
