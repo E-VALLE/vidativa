@@ -190,11 +190,9 @@ Projeto com HTML e CSS/
 │   ├── plus-jakarta-sans-v12-latin-500.woff2
 │   ├── plus-jakarta-sans-v12-latin-600.woff2
 │   └── plus-jakarta-sans-v12-latin-700.woff2
-├── imagens/                 # 5 imagens do carrossel em WebP, hospedadas localmente
+├── imagens/                 # 3 imagens do carrossel em WebP, hospedadas localmente (~87 KB total)
 │   ├── slide-01.webp        # (preloaded — elemento LCP)
 │   ├── slide-02.webp
-│   ├── slide-03.webp
-│   ├── slide-04.webp
-│   └── slide-05.webp
+│   └── slide-03.webp
 └── README.md                # Este arquivo
 ```
