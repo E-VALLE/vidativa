@@ -77,10 +77,10 @@
 
       <div class="header-actions">
         <a class="btn-header-cta btn-press" href="#departamentos">Compre Agora</a>
-        <button class="btn-icon btn-press" aria-label="Abrir carrinho de compras">
+        <button type="button" class="btn-icon btn-press" aria-label="Abrir carrinho de compras">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
         </button>
-        <button class="btn-icon btn-mobile-menu btn-press" aria-label="Abrir menu de navegação">
+        <button type="button" class="btn-icon btn-mobile-menu btn-press" aria-label="Abrir menu de navegação">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         </button>
       </div>
@@ -95,6 +95,15 @@
 
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-overlay"></div>
+        <img
+          class="hero-lcp"
+          src="imagens/slide-01.webp"
+          alt=""
+          width="1280"
+          height="853"
+          fetchpriority="high"
+          decoding="async"
+        />
         <div class="carousel-slide slide-1"></div>
         <div class="carousel-slide slide-2"></div>
         <div class="carousel-slide slide-3"></div>
@@ -240,24 +249,24 @@
           <div class="schedule-card">
             <h3>Horários Disponíveis</h3>
             <div class="slots-grid">
-              <button class="slot-btn">
+              <button type="button" class="slot-btn">
                 <span class="slot-day">Amanhã</span>
                 <span class="slot-time">08h - 12h</span>
               </button>
-              <button class="slot-btn">
+              <button type="button" class="slot-btn">
                 <span class="slot-day">Amanhã</span>
                 <span class="slot-time">14h - 18h</span>
               </button>
-              <button class="slot-btn" disabled>
+              <button type="button" class="slot-btn" disabled>
                 <span class="slot-day">Hoje</span>
                 <span class="slot-time">Esgotado</span>
               </button>
-              <button class="slot-btn">
+              <button type="button" class="slot-btn">
                 <span class="slot-day">Depois de amanhã</span>
                 <span class="slot-time">08h - 12h</span>
               </button>
             </div>
-            <button class="btn-all-times btn-press">Ver todos horários</button>
+            <button type="button" class="btn-all-times btn-press">Ver todos horários</button>
           </div>
 
         </div>

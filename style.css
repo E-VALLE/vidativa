@@ -1305,7 +1305,31 @@ summary:focus-visible {
 }
 
 /* ================================================
-   16. CARROSSEL — background-image por classe CSS
+   16. HERO LCP IMAGE
+      Img element dá ao Lighthouse um candidato LCP
+      rastreável. Visível nos primeiros 5 s (durante
+      slide-1), depois some por trás do carrossel.
+   ================================================ */
+@keyframes heroLcpFade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.hero-lcp {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* Desaparece após o primeiro slide terminar */
+  animation: heroLcpFade 0.5s ease forwards;
+  animation-delay: 4.95s;
+}
+
+/* ================================================
+   17. CARROSSEL — background-image por classe CSS
    ================================================ */
 /*
   5 slides × 5 s cada = 25 s por ciclo.
@@ -1345,7 +1369,7 @@ summary:focus-visible {
 }
 
 /* ================================================
-   17. MICRO-INTERAÇÕES — Req 5
+   18. MICRO-INTERAÇÕES — Req 5
    ================================================ */
 @keyframes fadeInUp {
   from {
@@ -1464,6 +1488,9 @@ summary:focus-visible {
   /* Carrossel: mantém slide 1 sempre visível */
   .carousel-slide       { animation: none; }
   .slide-1              { opacity: 1; }
+
+  /* Hero LCP: sem fadeout — imagem permanece visível */
+  .hero-lcp             { animation: none; opacity: 1; }
 
   /* Scroll-reveal: mostra conteúdo imediatamente */
   .reveal,
