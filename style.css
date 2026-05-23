@@ -1359,7 +1359,13 @@ summary:focus-visible {
   animation: slideFade 15s infinite linear;
 }
 
-.slide-1 { animation-delay:  0s; background-image: url("imagens/slide-01.webp"); }
+/* slide-1: sem background — coberto pelo img.hero-lcp; não repete (forwards)
+   para não reaparecer quando o img já some */
+.slide-1 {
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 .slide-2 { animation-delay:  5s; background-image: url("imagens/slide-02.webp"); }
 .slide-3 { animation-delay: 10s; background-image: url("imagens/slide-03.webp"); }
 
