@@ -80,7 +80,7 @@
   --color-secondary: #964900;
   --color-secondary-container: #fe851f;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #612d00;
+  --color-on-secondary-container: #4a2000;
   --color-accent-text: #b34a00; /* laranja escuro p/ texto — 5.2:1 sobre branco */
 
   --color-tertiary-container: #b14b6f;
@@ -896,7 +896,7 @@ summary:focus-visible {
 
 .timeline-num--accent {
   background-color: var(--color-secondary-container);
-  color: var(--color-on-secondary-container); /* #612d00 — 4.6:1 sobre laranja ✓ */
+  color: var(--color-on-secondary-container); /* #4a2000 — 5.7:1 sobre laranja ✓ */
 }
 
 .timeline-label {
