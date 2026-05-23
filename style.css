@@ -170,7 +170,7 @@
     --color-on-primary: #002204;
     --color-on-primary-container: #cbffc2;
 
-    --color-secondary-container: #c96a00;
+    --color-secondary-container: #8b4f00;
     --color-on-secondary-container: #ffdcc7;
 
     --color-tertiary-container: #7f2448;
@@ -512,47 +512,21 @@ summary:focus-visible {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 600px;
-  padding: var(--space-xl) var(--space-lg) 120px;
-  display: flex;
-  align-items: center;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  background: linear-gradient(
-    to right,
-    rgba(247, 251, 240, 0.9),
-    rgba(247, 251, 240, 0.7),
-    transparent
-  );
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero-overlay {
-    background: linear-gradient(
-      to right,
-      rgba(24, 29, 23, 0.92),
-      rgba(24, 29, 23, 0.7),
-      transparent
-    );
-  }
+  z-index: 1;
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 20;
-  width: 100%;
-  max-width: 1140px;
-  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  padding: var(--space-xl) var(--space-lg) 120px;
 }
 
 .hero-inner {
@@ -560,6 +534,9 @@ summary:focus-visible {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  background-color: rgba(247, 251, 240, 0.88);
+  padding: var(--space-lg);
+  border-radius: 12px;
 }
 
 .hero-badge {
@@ -577,6 +554,9 @@ summary:focus-visible {
 }
 
 @media (prefers-color-scheme: dark) {
+  .hero-inner {
+    background-color: rgba(24, 29, 23, 0.92);
+  }
   .hero-badge {
     background-color: rgba(30, 35, 28, 0.9);
   }
@@ -1306,48 +1286,37 @@ summary:focus-visible {
 
 /* ================================================
    16. HERO LCP IMAGE
-      Img element dá ao Lighthouse um candidato LCP
-      rastreável. Visível nos primeiros 5 s (durante
-      slide-1), depois some por trás do carrossel.
+      Elemento em fluxo normal — define a altura do
+      hero e é o candidato LCP rastreável pelo Lantern
+      (URL única, elemento visível, sem position:absolute).
    ================================================ */
-@keyframes heroLcpFade {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-
 .hero-lcp {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: 600px;
   object-fit: cover;
   object-position: center;
-  display: block;
-  z-index: 1;
-  /* Desaparece após o primeiro slide terminar */
-  animation: heroLcpFade 0.5s ease forwards;
-  animation-delay: 4.95s;
+}
+
+@media (max-width: 639px) {
+  .hero-lcp {
+    height: 500px;
+    object-position: 65% center;
+  }
 }
 
 /* ================================================
    17. CARROSSEL — background-image por classe CSS
+      3 slots × 5 s = 15 s por ciclo.
+      Slot 0 (0-5 s): hero-lcp sempre visível.
+      Slot 1 (5-10 s): slide-2 cobre hero-lcp.
+      Slot 2 (10-15 s): slide-3 cobre hero-lcp.
+      fade-in de 1,5 s para cross-fade suave.
    ================================================ */
-/*
-  5 slides × 5 s cada = 25 s por ciclo.
-  3 slides × 5 s cada = 15 s por ciclo.
-  Visível: 0%–23% (3,5 s) → fade: 23%–33% (5 s) → oculto: 33%–100%
-*/
-@keyframes slideFade {
-  0%,
-  23% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  33%,
-  100% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
+@keyframes slideFadeIn {
+  0%       { opacity: 0; transform: scale(1.05); }
+  10%, 23% { opacity: 1; transform: scale(1); }
+  33%, 100% { opacity: 0; transform: scale(1.05); }
 }
 
 .carousel-slide {
@@ -1356,16 +1325,9 @@ summary:focus-visible {
   opacity: 0;
   background-size: cover;
   background-position: center;
-  animation: slideFade 15s infinite linear;
+  animation: slideFadeIn 15s infinite linear;
 }
 
-/* slide-1: sem background — coberto pelo img.hero-lcp; não repete (forwards)
-   para não reaparecer quando o img já some */
-.slide-1 {
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
 .slide-2 { animation-delay:  5s; background-image: url("imagens/slide-02.webp"); }
 .slide-3 { animation-delay: 10s; background-image: url("imagens/slide-03.webp"); }
 
@@ -1492,12 +1454,8 @@ summary:focus-visible {
     scroll-behavior: auto;
   }
 
-  /* Carrossel: mantém slide 1 sempre visível */
-  .carousel-slide       { animation: none; }
-  .slide-1              { opacity: 1; }
-
-  /* Hero LCP: sem fadeout — imagem permanece visível */
-  .hero-lcp             { animation: none; opacity: 1; }
+  /* Carrossel: slides ficam ocultos; hero-lcp (sempre visível) permanece */
+  .carousel-slide { animation: none; }
 
   /* Scroll-reveal: mostra conteúdo imediatamente */
   .reveal,

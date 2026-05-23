@@ -22,8 +22,7 @@
   <meta property="og:url"         content="https://e-valle.github.io/vidativa/" />
   <meta property="og:image"       content="https://e-valle.github.io/vidativa/logomarca-light.svg" />
 
-  <!-- Req 9: preload da imagem LCP e fontes críticas (acima do fold) -->
-  <link rel="preload" href="imagens/slide-01.webp"                        as="image" fetchpriority="high" />
+  <!-- Req 9: preload de fontes críticas (acima do fold) -->
   <link rel="preload" href="fontes/noto-serif-v33-latin-700.woff2"        as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fontes/plus-jakarta-sans-v12-latin-400.woff2" as="font" type="font/woff2" crossorigin />
 
@@ -90,13 +89,7 @@
     <!-- Hero -->
     <section class="hero">
 
-      <div class="hero-bg" aria-hidden="true">
-        <div class="carousel-slide slide-1"></div>
-        <div class="carousel-slide slide-2"></div>
-        <div class="carousel-slide slide-3"></div>
-      </div>
-
-      <!-- LCP: img após hero-bg (DOM order → z-index acima do carrossel) -->
+      <!-- LCP: img em fluxo normal — define a altura do hero e é candidato LCP rastreável -->
       <img
         class="hero-lcp"
         src="imagens/slide-01.webp"
@@ -104,11 +97,12 @@
         width="1280"
         height="853"
         fetchpriority="high"
-        decoding="sync"
       />
 
-      <!-- Overlay: fora do hero-bg, acima da img LCP (z-index 10 na página) -->
-      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <div class="carousel-slide slide-2"></div>
+        <div class="carousel-slide slide-3"></div>
+      </div>
 
       <div class="hero-content">
         <div class="hero-inner">

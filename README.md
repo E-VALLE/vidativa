@@ -146,10 +146,11 @@ Implementado inteiramente em CSS, sem JavaScript e sem classes utilitárias:
 
 ### 9. Otimização de Performance e Assets
 
-- **Imagens do carrossel:** reduzidas de 10 para **3 slides**, convertidas para **WebP** e hospedadas localmente na pasta `imagens/` (~87 KB total) — elimina todas as requisições externas ao CDN do Unsplash e reduz o payload de ~11,6 MB em 99%; `<link rel="preload">` para `slide-01.webp` garante que o LCP (primeiro frame visível) carregue com prioridade máxima; caminhos relativos (`imagens/slide-01.webp`) garantem funcionamento em localhost e GitHub Pages
+- **Imagens do carrossel:** reduzidas de 10 para **3 slides**, convertidas para **WebP** e hospedadas localmente na pasta `imagens/` (~87 KB total) — elimina todas as requisições externas ao CDN do Unsplash e reduz o payload de ~11,6 MB em 99%; `fetchpriority="high"` no `<img class="hero-lcp">` garante que o LCP (primeiro frame visível) carregue com prioridade máxima; caminhos relativos (`imagens/slide-01.webp`) garantem funcionamento em localhost e GitHub Pages
 - **Logomarca:** dois arquivos SVG vetoriais locais (`logomarca-light.svg` / `logomarca-dark.svg`) substituem imagens externas; SVG não perde qualidade em nenhuma resolução
 - **Meta description** adicionada para SEO e pré-visualização em mecanismos de busca
-- **Logo do cabeçalho** (elemento LCP): `fetchpriority="high"` e `decoding="async"` sinalizam prioridade ao browser
+- **Imagem hero** (elemento LCP): `fetchpriority="high"` no `<img class="hero-lcp">` sinaliza prioridade máxima ao browser
+- **Logo do cabeçalho:** `decoding="async"` para decodificação assíncrona sem bloquear a thread principal
 - **Logo do rodapé:** `loading="lazy"` adia o carregamento até a aproximação do elemento
 - **Fontes hospedadas localmente:** Noto Serif (v33) e Plus Jakarta Sans (v12) servidas da pasta `fontes/` via `@font-face` com `font-display: swap` — elimina as requisições render-blocking ao Google Fonts e reduz o FCP em ~7 s; `<link rel="preload">` para os dois arquivos críticos (Noto Serif 700 e Plus Jakarta Sans 400) garante que as fontes acima do fold estejam prontas antes do primeiro paint
 - **Ícones SVG inline:** os 11 ícones do Material Symbols Outlined foram substituídos por SVG inline diretamente no HTML — elimina a última dependência de CDN externo em runtime. A substituição foi motivada por desempenho: a fonte de ícones do Google era render-blocking (~7 s no 4G simulado do Lighthouse), impedindo o primeiro paint; com SVG inline, zero requisições extras são feitas e as cores herdam automaticamente via `fill: currentColor`, mantendo visual idêntico ao original
