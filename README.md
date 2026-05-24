@@ -99,7 +99,8 @@ Classes CSS puras definidas em `style.css`, sem dependência de framework:
 - `@media (min-width: 640px)` — botões do hero em linha, grid de 2 colunas para taxas de entrega
 - `@media (min-width: 768px)` — nav desktop visível, grids de 3 colunas, timeline horizontal, footer em 3 colunas, departamentos em grid de 5 colunas
 - `@media (min-width: 1024px)` — bento grid em `2fr 1fr`
-- `@media (max-width: 639px)` — carrossel com `background-position: 65% center` para evitar cortes em mobile
+- `@media (max-width: 639px)` — carrossel com `background-position: 65% center`; hero ajustado para 620 px de altura com alinhamento `flex-start`, garantindo que badge, título, subtítulo e ambos os botões fiquem visíveis em dispositivos de 360 px sem necessidade de scroll
+- **Menu hambúrguer mobile (CSS puro):** *checkbox hack* — `<input type="checkbox" id="nav-toggle">` oculto + `<label for="nav-toggle">` como botão de toggle; seletor `~` (general sibling) revela o drawer lateral e troca o ícone hambúrguer ↔ X; overlay semitransparente fecha o menu ao toque fora do drawer — zero JavaScript
 - **Tipografia fluida (`clamp()`)** em todos os níveis de heading — `h1`, `h2` (section-title, dept), `h3` (serviços, delivery, FAQ) — transições suaves de tamanho entre breakpoints sem saltos abruptos
 
 ---
@@ -192,7 +193,7 @@ Projeto com HTML e CSS/
 │   ├── plus-jakarta-sans-v12-latin-600.woff2
 │   └── plus-jakarta-sans-v12-latin-700.woff2
 ├── imagens/                 # 3 imagens do carrossel em WebP (~87 KB total)
-│   ├── slide-01.webp        # (preloaded — elemento LCP)
+│   ├── slide-01.webp        # (fetchpriority="high" — elemento LCP)
 │   ├── slide-02.webp
 │   └── slide-03.webp
 └── README.md                # Este arquivo

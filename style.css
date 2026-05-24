@@ -507,6 +507,130 @@ summary:focus-visible {
 }
 
 /* ================================================
+   8b. MENU MOBILE (checkbox hack — CSS puro)
+   ================================================ */
+
+/* Checkbox oculto visualmente mas ativo para o seletor :checked */
+.nav-toggle-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ícone X oculto por padrão; hamburguer visível */
+.icon-close { display: none; }
+.icon-menu  { display: block; }
+
+/* Quando aberto: troca ícones */
+.nav-toggle-input:checked ~ .header-inner .icon-menu  { display: none; }
+.nav-toggle-input:checked ~ .header-inner .icon-close { display: block; }
+
+/* Drawer lateral */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(280px, 85vw);
+  height: 100dvh;
+  background-color: var(--color-card);
+  border-left: 1px solid var(--color-surface-high);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  gap: var(--space-md);
+  overflow-y: auto;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform var(--t-normal), visibility var(--t-normal);
+  box-shadow: var(--shadow-lg);
+}
+
+.nav-toggle-input:checked ~ .mobile-nav {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Overlay escuro — clicar fora fecha o menu */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-normal), visibility var(--t-normal);
+}
+
+.nav-toggle-input:checked ~ .mobile-nav-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Cabeçalho do drawer (logo + botão fechar) */
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-surface-high);
+}
+
+.mobile-nav-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--color-on-surface-variant);
+  transition: background-color var(--t-fast);
+}
+
+.mobile-nav-close:hover {
+  background-color: var(--color-surface-high);
+}
+
+/* Links do drawer */
+.mobile-nav-link {
+  display: block;
+  padding: var(--space-md) var(--space-sm);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  color: var(--color-on-surface);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+.mobile-nav-link:hover {
+  background-color: var(--color-surface-high);
+  color: var(--color-primary);
+}
+
+.mobile-nav-link--active {
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+}
+
+/* CTA no fundo do drawer */
+.mobile-nav-cta {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-surface-high);
+}
+
+/* Em desktop: ocultar elementos exclusivos do mobile */
+@media (min-width: 768px) {
+  .mobile-nav,
+  .mobile-nav-overlay { display: none; }
+}
+
+/* ================================================
    9. HERO
    ================================================ */
 .hero {
@@ -647,7 +771,7 @@ summary:focus-visible {
    10. DEPARTMENTS
    ================================================ */
 .departments {
-  background-color: var(--color-surface);
+  background-color: var(--color-background);
   padding: 0 var(--space-lg) var(--space-xl);
   max-width: 1140px;
   margin-inline: auto;
@@ -1300,8 +1424,17 @@ summary:focus-visible {
 
 @media (max-width: 639px) {
   .hero-lcp {
-    height: 500px;
+    height: 620px;
     object-position: 65% center;
+  }
+  .hero-content {
+    align-items: flex-start;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+  .hero-inner {
+    padding: var(--space-md);
+    gap: var(--space-md);
   }
 }
 
