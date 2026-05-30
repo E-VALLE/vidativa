@@ -661,6 +661,8 @@ summary:focus-visible {
   background-color: rgba(247, 251, 240, 0.88);
   padding: var(--space-lg);
   border-radius: 12px;
+  border-left: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .hero-badge {
@@ -679,7 +681,9 @@ summary:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   .hero-inner {
-    background-color: rgba(24, 29, 23, 0.92);
+    background-color: rgba(24, 29, 23, 0.82);
+    border: 1px solid rgba(136, 217, 130, 0.18);
+    border-left: 3px solid var(--color-primary);
   }
   .hero-badge {
     background-color: rgba(30, 35, 28, 0.9);
@@ -720,6 +724,22 @@ summary:focus-visible {
 @media (min-width: 640px) {
   .hero-actions {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-badge {
+    font-size: var(--text-md);
+    padding: var(--space-sm) var(--space-lg);
+  }
+  .hero-actions {
+    gap: var(--space-lg);
+  }
+  .hero-actions .btn-secondary,
+  .hero-actions .btn-outline {
+    flex: 1;
+    font-size: var(--text-lg);
+    padding: var(--space-md) var(--space-xl);
   }
 }
 
@@ -1435,6 +1455,21 @@ summary:focus-visible {
   .hero-inner {
     padding: var(--space-md);
     gap: var(--space-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    padding-left: clamp(var(--space-xl), 7vw, 5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding-left: clamp(4rem, 8vw, 7.5rem);
+  }
+  .hero-inner {
+    max-width: 44rem;
   }
 }
 

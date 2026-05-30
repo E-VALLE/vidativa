@@ -89,6 +89,7 @@ Classes CSS puras definidas em `style.css`, sem dependência de framework:
 
 - **Flexbox** (`.layout-flex`, `.site-nav`, `.hero-actions`, `.header-inner`): alinhamento de menus, botões e grupos de elementos inline, com `gap` via variável CSS
 - **Grid** (`.layout-grid`, `.layout-grid-3`, `.bento`, `.rates-grid`, `.slots-grid`): grade principal de conteúdo com `grid-template-columns` responsivo definido por breakpoints, incluindo o bento grid da seção de delivery (`2fr 1fr` em telas grandes)
+- **Hero card (`.hero-inner`):** posicionamento editorial à esquerda com recuo responsivo via `padding-left: clamp()` no `.hero-content`; em telas ≥ 768 px os botões usam `flex: 1` para preencher igualmente a largura do card; em telas ≥ 1024 px o card amplia para `max-width: 44rem` com recuo mais pronunciado — o card nunca fica isolado na borda esquerda em nenhum breakpoint
 
 ---
 
@@ -97,8 +98,8 @@ Classes CSS puras definidas em `style.css`, sem dependência de framework:
 100% CSS puro, sem framework. As regras base definem o layout mobile; media queries expandem progressivamente:
 
 - `@media (min-width: 640px)` — botões do hero em linha, grid de 2 colunas para taxas de entrega
-- `@media (min-width: 768px)` — nav desktop visível, grids de 3 colunas, timeline horizontal, footer em 3 colunas, departamentos em grid de 5 colunas
-- `@media (min-width: 1024px)` — bento grid em `2fr 1fr`
+- `@media (min-width: 768px)` — nav desktop visível, grids de 3 colunas, timeline horizontal, footer em 3 colunas, departamentos em grid de 5 colunas; hero card com recuo lateral intencional (`padding-left: clamp(40px, 7vw, 80px)`), badge ampliado (14 → 16 px / padding 4×16 → 8×24 px), botões do hero com `flex: 1` (largura igual, preenchendo o card), fonte 16 → 18 px e padding maior
+- `@media (min-width: 1024px)` — bento grid em `2fr 1fr`; hero card amplia para `max-width: 44rem` com recuo mais pronunciado (`padding-left: clamp(4rem, 8vw, 7.5rem)`)
 - `@media (max-width: 639px)` — carrossel com `background-position: 65% center`; hero ajustado para 620 px de altura com alinhamento `flex-start`, garantindo que badge, título, subtítulo e ambos os botões fiquem visíveis em dispositivos de 360 px sem necessidade de scroll
 - **Menu hambúrguer mobile (CSS puro):** *checkbox hack* — `<input type="checkbox" id="nav-toggle">` oculto + `<label for="nav-toggle">` como botão de toggle; seletor `~` (general sibling) revela o drawer lateral e troca o ícone hambúrguer ↔ X; overlay semitransparente fecha o menu ao toque fora do drawer — zero JavaScript
 - **Tipografia fluida (`clamp()`)** em todos os níveis de heading — `h1`, `h2` (section-title, dept), `h3` (serviços, delivery, FAQ) — transições suaves de tamanho entre breakpoints sem saltos abruptos
